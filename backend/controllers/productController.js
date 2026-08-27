@@ -6,8 +6,11 @@ const getProducts = (req, res) => {
 
     db.query(sql, (err, results) => {
         if (err) {
+            console.error("Error fetching products:", err);
+
             return res.status(500).json({
-                message: "Error fetching products"
+                message: "Error fetching products",
+                error: err.message
             });
         }
 
