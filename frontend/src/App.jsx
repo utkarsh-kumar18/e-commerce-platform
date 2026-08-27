@@ -9,7 +9,7 @@ function App() {
   const path = window.location.pathname;
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch("https://e-commerce-platform-2qvq.onrender.com/api/products")
       .then((response) => response.json())
       .then((data) => {
         setProducts(data);
@@ -81,7 +81,7 @@ function App() {
 
       // 1. Create order
       const orderResponse = await fetch(
-        "http://localhost:5000/api/orders",
+        "https://e-commerce-platform-2qvq.onrender.com/api/orders",
         {
           method: "POST",
           headers: {
@@ -107,7 +107,7 @@ function App() {
       // 2. Create order items
       for (const item of cart) {
         const itemResponse = await fetch(
-          "http://localhost:5000/api/order-items",
+          "https://e-commerce-platform-2qvq.onrender.com/api/order-items",
           {
             method: "POST",
             headers: {
@@ -135,7 +135,7 @@ function App() {
 
       // 3. Create Stripe Checkout Session
       const paymentResponse = await fetch(
-        "http://localhost:5000/api/payment/create-checkout-session",
+        "https://e-commerce-platform-2qvq.onrender.com/api/payment/create-checkout-session",
         {
           method: "POST",
           headers: {
@@ -375,7 +375,7 @@ function OrdersPage() {
       return;
     }
 
-    fetch("http://localhost:5000/api/orders/my-orders", {
+    fetch("https://e-commerce-platform-2qvq.onrender.com/api/orders/my-orders", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -460,7 +460,7 @@ function LoginPage() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/login",
+        "https://e-commerce-platform-2qvq.onrender.com/api/auth/login",
         {
           method: "POST",
           headers: {
@@ -544,7 +544,7 @@ function RegisterPage() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/register",
+        "https://e-commerce-platform-2qvq.onrender.com/api/auth/register",
         {
           method: "POST",
           headers: {
