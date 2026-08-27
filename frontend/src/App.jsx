@@ -299,9 +299,59 @@ function App() {
                   <strong>{item.name}</strong>
 
                   <p>
-                    A${Number(item.price).toFixed(2)} ×{" "}
-                    {item.quantity}
+                    A${Number(item.price).toFixed(2)}
                   </p>
+
+                  <div className="quantity-controls">
+                    <button
+                      className="quantity-button"
+                      onClick={() => {
+                        setCart((currentCart) =>
+                          currentCart
+                            .map((product) =>
+                              product.id === item.id
+                                ? {
+                                    ...product,
+                                    quantity: product.quantity - 1,
+                                  }
+                                : product
+                            )
+                            .filter((product) => product.quantity > 0)
+                        );
+                      }}
+                    >
+                      −
+                    </button>
+
+                    <span className="quantity-number">
+                      {item.quantity}
+                    </span>
+
+                    <button
+                      className="quantity-button"
+                      onClick={() => {
+                        setCart((currentCart) =>
+                          currentCart.map((product) => {
+                            if (product.id !== item.id) {
+                              return product;
+                            }
+
+                            if (product.quantity >= product.stock) {
+                              alert("No more stock available");
+                              return product;
+                            }
+
+                            return {
+                              ...product,
+                              quantity: product.quantity + 1,
+                            };
+                          })
+                        );
+                      }}
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
 
                 <button
