@@ -551,17 +551,17 @@ button:hover {
   }
 
   .products-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    width: 100%;
-    max-width: 100%;
-    gap: 18px;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 18px !important;
     box-sizing: border-box;
   }
 
   .product-card {
-    width: 100%;
-    min-width: 0;
+    width: 100% !important;
+    min-width: 0 !important;
     box-sizing: border-box;
   }
 
