@@ -7,7 +7,7 @@ function App() {
   const [cart, setCart] = useState([]);
 
   const path = window.location.pathname;
-  const token = localStorage.getItem("token");
+  const token = sessionStorage.getItem("token");
 
   useEffect(() => {
     fetch("https://e-commerce-platform-2qvq.onrender.com/api/products")
@@ -65,7 +65,7 @@ function App() {
       return;
     }
 
-    const token = localStorage.getItem("token");
+    const token = sessionStorage.getItem("token");
 
     if (!token) {
       alert("Please login first");
@@ -251,11 +251,11 @@ function App() {
     <div className="app-container">
     <header className="app-header">  
       <h1 className="main-title">E-Commerce Platform</h1>
-      {localStorage.getItem("token") ? (
+      {sessionStorage.getItem("token") ? (
         <>
           <div style={{ display: "flex", justifyContent: "center", gap: "15px" }}>
             <button onClick={() => {
-              localStorage.removeItem("token");
+              sessionStorage.removeItem("token");
               window.location.href = "/login";
             }}>
               Logout
@@ -459,7 +459,7 @@ function OrdersPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = sessionStorage.getItem("token");
 
     if (!token) {
       alert("Please login first");
@@ -571,7 +571,7 @@ function LoginPage() {
         throw new Error(data.message || "Login failed");
       }
 
-      localStorage.setItem("token", data.token);
+      sessionStorage.setItem("token", data.token);
 
       alert("Login successful!");
 
