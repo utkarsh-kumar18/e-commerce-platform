@@ -7,6 +7,7 @@ function App() {
   const [cart, setCart] = useState([]);
 
   const path = window.location.pathname;
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     fetch("https://e-commerce-platform-2qvq.onrender.com/api/products")
@@ -166,6 +167,10 @@ function App() {
     }
   };
 
+  if (path === "/" && !token) {
+    return <LoginPage />;
+  }
+
   if (path === "/login") {
     return <LoginPage />;
   }
@@ -179,15 +184,52 @@ function App() {
   }
 
   if (path === "/payment-success") {
-    return (
-      <div style={{ textAlign: "center", marginTop: "100px" }}>
-        <h1 className="main-title">Payment Successful! 🎉</h1>
-        <p>Your payment has been completed successfully.</p>
-        <p>Thank you for your purchase.</p>
+    const orderId = new URLSearchParams(window.location.search).get("order_id");
 
-        <button onClick={() => (window.location.href = "/")}>
-          Back to Home
-        </button>
+    return (
+      <div className="success-page">
+        <div className="success-card">
+
+          <div className="success-icon">🎉</div>
+
+          <h1>Payment Successful!</h1>
+
+          <p className="success-message">
+            Your payment has been completed successfully.
+          </p>
+
+          <div className="success-details">
+            {orderId && (
+              <p>
+                <strong>Order Number:</strong> #{orderId}
+              </p>
+            )}
+
+            <p>Thank you for your purchase.</p>
+            <p>Your order is now being processed.</p>
+          </div>
+
+          <div className="success-actions">
+            <button
+              className="success-primary"
+              onClick={() => {
+                window.location.href = "/";
+              }}
+            >
+              🛍️ Continue Shopping
+            </button>
+
+            <button
+              className="success-secondary"
+              onClick={() => {
+                window.location.href = "/orders";
+              }}
+            >
+              📦 View My Orders
+            </button>
+          </div>
+
+        </div>
       </div>
     );
   }
