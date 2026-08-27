@@ -518,13 +518,56 @@ button:hover {
   }
 
   .products-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: 100%;
+    gap: 18px;
+    box-sizing: border-box;
   }
 
   .cart-item {
     flex-direction: column;
     gap: 10px;
     align-items: flex-start;
+  }
+
+  .auth-card {
+    padding: 25px;
+  }
+}
+
+/* Mobile storefront layout */
+@media (max-width: 600px) {
+  .app-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 25px 15px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .app-header h1 {
+    font-size: 30px;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: 100%;
+    gap: 18px;
+    box-sizing: border-box;
+  }
+
+  .product-card {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    gap: 10px;
   }
 
   .auth-card {
