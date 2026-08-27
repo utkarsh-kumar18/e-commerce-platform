@@ -22,8 +22,11 @@ const getProductById = (req, res) => {
 
     db.query(sql, [id], (err, results) => {
         if (err) {
+            console.error("Error fetching products:", err);
+    
             return res.status(500).json({
-                message: "Error fetching product"
+                message: "Error fetching products",
+                error: err.message
             });
         }
 
