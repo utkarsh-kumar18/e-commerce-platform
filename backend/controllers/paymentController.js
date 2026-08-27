@@ -28,8 +28,8 @@ const createCheckoutSession = async (req, res) => {
                 order_id: order_id
             },
 
-            success_url: "http://localhost:5173/payment-success",
-            cancel_url: "http://localhost:5173/payment-cancel"
+            success_url: "https://e-commerce-platform-nine-iota.vercel.app/payment-success?order_id=" + order_id,
+            cancel_url: "https://e-commerce-platform-nine-iota.vercel.app/payment-cancel",
         });
 
         res.status(200).json({
