@@ -27,4 +27,15 @@ const protect = (req, res, next) => {
     }
 };
 
+const admin = (req, res, next) => {
+    if (!req.user || req.user.role !== "admin") {
+        return res.status(403).json({
+            message: "Admin access required"
+        });
+    }
+    next();
+};
+
 module.exports = protect;
+module.exports.protect = protect;
+module.exports.admin = admin;
