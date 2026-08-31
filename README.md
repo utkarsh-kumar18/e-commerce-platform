@@ -2,20 +2,49 @@
 
 A full-stack e-commerce platform built with **React, Vite, Node.js, Express, MySQL, and Stripe**.
 
-The project provides a complete shopping experience including user authentication, product browsing, cart management, quantity controls, checkout, Stripe payments, order tracking, and automatic inventory updates.
+The application provides a complete online shopping experience with user authentication, product browsing, search and filtering, shopping cart management, Stripe checkout, order tracking, inventory management, and an admin dashboard.
+
+---
+
+## 🌐 Live Demo
+
+**Live Application:**  
+https://e-commerce-platform-nine-iota.vercel.app/
+
+**GitHub Repository:**  
+https://github.com/utkarsh-kumar18/e-commerce-platform
 
 ---
 
 ## ✨ Features
 
-### 🔐 Authentication
+### 🔐 User Authentication
+
 - User registration
 - User login
 - JWT-based authentication
 - Protected checkout and order functionality
 - Logout functionality
+- Role-based admin access
+
+---
+
+### 🛍️ Product Management
+
+- Product listing
+- Product name and description
+- Product categories
+- Product pricing
+- Product search
+- Category filtering
+- Minimum and maximum price filtering
+- Out-of-stock handling
+- Automatic stock reduction after successful payment
+
+---
 
 ### 🛒 Shopping Cart
+
 - Add products to cart
 - Add multiple quantities of the same product
 - Increase/decrease product quantity
@@ -24,15 +53,10 @@ The project provides a complete shopping experience including user authenticatio
 - Stock-aware quantity controls
 - Out-of-stock handling
 
-### 📦 Products
-- Product listing
-- Product name and description
-- Product pricing
-- Real-time stock display
-- Automatic stock reduction after successful payment
-- Out-of-stock state
+---
 
 ### 💳 Payments
+
 - Stripe Checkout integration
 - Secure payment processing
 - Stripe webhook integration
@@ -40,22 +64,39 @@ The project provides a complete shopping experience including user authenticatio
 - Payment success page
 - Payment cancellation handling
 
-### 📋 Orders
+---
+
+### 📦 Orders
+
 - Create orders during checkout
 - View previous orders
 - Order total
 - Order status
 - Payment status
 - Order creation date
-- Automatic order status update after successful Stripe payment
+- Automatic order status update after successful payment
 
-### 📱 Responsive Design
-- Desktop storefront
-- Tablet-friendly layout
-- Mobile-friendly product grid
-- Responsive cart
-- Responsive navigation
-- No horizontal product overflow on mobile
+---
+
+### 🛠️ Admin Dashboard
+
+The platform includes a protected admin dashboard for inventory management.
+
+- Admin-only authentication
+- Inventory overview
+- View all products
+- Add new products
+- Edit existing products
+- Update product price
+- Update product stock
+- Update product information
+- Delete products
+- Real-time inventory listing
+- Role-based access protection
+
+The admin dashboard supports complete product CRUD operations:
+
+**Create → Read → Update → Delete**
 
 ---
 
@@ -79,9 +120,7 @@ The project provides a complete shopping experience including user authenticatio
 ### Database
 
 - MySQL
-- Relational database design
-- Foreign-key relationships between users, orders, products, and order items
-
+  
 ### Payments
 
 - Stripe Checkout
@@ -89,9 +128,9 @@ The project provides a complete shopping experience including user authenticatio
 
 ### Deployment
 
-- Frontend: Vercel
-- Backend: Render
-- Database: MySQL / Railway
+- **Frontend:** Vercel
+- **Backend:** Render
+- **Database:** MySQL / Railway
 
 ---
 
@@ -113,6 +152,7 @@ E-Commerce Platform/
 │   ├── public/
 │   ├── src/
 │   │   ├── assets/
+│   │   ├── AdminPage.jsx
 │   │   ├── App.jsx
 │   │   ├── App.css
 │   │   ├── index.css
@@ -121,4 +161,5 @@ E-Commerce Platform/
 │   ├── vite.config.js
 │   └── vercel.json
 │
+├── .gitignore
 └── README.md
