@@ -9,7 +9,7 @@ The application provides a complete online shopping experience with user authent
 ## 🌐 Live Demo
 
 **Live Application:**  
-https://e-commerce-platform-nine-iota.vercel.app/
+https://e-commerce-platform-live.vercel.app/
 
 **GitHub Repository:**  
 https://github.com/utkarsh-kumar18/e-commerce-platform
